@@ -1,5 +1,5 @@
 <script setup>
-defineProps(['name', 'price', 'id', 'amount'])
+defineProps(['name', 'price', 'prodid', 'amount'])
 </script>
 
 <template>
@@ -8,7 +8,7 @@ defineProps(['name', 'price', 'id', 'amount'])
             <div class="d-flex justify-content-between">
                 <p class="letter">{{ name }} - {{ price }} </p>
                 <p class="letter">aantal {{ amount }}</p>
-                <button type="button" class="btn btn-danger letter">X</button>
+                <button type="button" v-on:click="delitem" class="btn btn-danger letter">X</button>
             </div>
         </div>
     </div>
@@ -20,3 +20,24 @@ defineProps(['name', 'price', 'id', 'amount'])
     font-family: Amain;
 }
 </style>
+
+<script>
+import axios from 'axios'
+export default {
+    methods: {
+        delitem() {
+            axios.post('https://i454010core.venus.fhict.nl/api/Order/Del/', {
+                id: 1,
+                pid: this.prodid
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+                location.reload(); 
+        }
+    }
+}
+</script>
