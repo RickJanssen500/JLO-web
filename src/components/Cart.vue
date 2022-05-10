@@ -8,7 +8,7 @@ import CartItem from "@/components/CartItem.vue";
 
    
     <CartItem v-for="Product in Products" :key="Product.id" :name="Product.product.name" :price="Product.product.price"
-        :prodid="Product.id" :amount="Product.amount" />
+        :prodid="Product.product.id" :amount="Product.amount" />
 
 </template>
 

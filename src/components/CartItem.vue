@@ -8,7 +8,7 @@ defineProps(['name', 'price', 'prodid', 'amount'])
             <div class="d-flex justify-content-between">
                 <p class="letter">{{ name }} - {{ price }} </p>
                 <p class="letter">aantal {{ amount }}</p>
-                <button type="button" v-on:click="delitem" class="btn btn-danger letter">X</button>
+                <button type="button" v-on:click="delitem()" class="btn btn-danger letter">X</button>
             </div>
         </div>
     </div>
@@ -24,21 +24,14 @@ defineProps(['name', 'price', 'prodid', 'amount'])
 <script>
 import axios from 'axios'
 export default {
+
     methods: {
-        delitem() {//werkt niet
-            axios.delete('https://i454010core.venus.fhict.nl/api/Order/Del/', {
-                data: {
-                    id: 1,
-                    pid: this.prodid
-                }
-            })
-                .then(function (response) {
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            location.reload();
+        delitem() {
+            axios.delete('https://i454010core.venus.fhict.nl/api/Order/Del/1/'+this.prodid)
+            .then(response => {window.location.reload()})
+            .catch(function (error) {
+                console.log(error);
+            })            
         }
     }
 }

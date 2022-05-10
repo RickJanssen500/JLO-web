@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     getitems() {
-      axios.get('https://i454010core.venus.fhict.nl/api/Order/itemcount/', {
+      axios.get('https://i454010core.venus.fhict.nl/api/Order/itemcount', {
         params: {
           ID: 1
         }
