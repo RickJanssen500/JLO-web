@@ -7,7 +7,7 @@ defineProps(['name', 'price', 'id', 'amount'])
         <div class="card-body">
             <div class="d-flex justify-content-between">
                 <p class="letter">{{ name }} - {{ price }} </p>
-                <p class="letter">aantal: {{ amount }}</p>
+                <p class="letter">aantal {{ amount }}</p>
                 <button type="button" class="btn btn-danger letter">X</button>
             </div>
         </div>
