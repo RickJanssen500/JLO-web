@@ -25,10 +25,12 @@ defineProps(['name', 'price', 'prodid', 'amount'])
 import axios from 'axios'
 export default {
     methods: {
-        delitem() {
-            axios.post('https://i454010core.venus.fhict.nl/api/Order/Del/', {
-                id: 1,
-                pid: this.prodid
+        delitem() {//werkt niet
+            axios.delete('https://i454010core.venus.fhict.nl/api/Order/Del/', {
+                data: {
+                    id: 1,
+                    pid: this.prodid
+                }
             })
                 .then(function (response) {
                     console.log(response);
@@ -36,7 +38,7 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
-                location.reload(); 
+            location.reload();
         }
     }
 }
