@@ -1,10 +1,11 @@
 <script setup>
 import Cart from "@/components/Cart.vue";
+import Complete from "@/components/Complete.vue";
 </script>
 
 <template>
   <div>
-    <h1>hier staan alle producten uit je winkelwagen</h1>
+    <Complete/>
     <Cart />
   </div>
 </template>
